@@ -1,0 +1,127 @@
+/*
+ * SkyLog CSS - Inspired by Coursera
+ */
+
+/* --- Variables (For easy color changes) --- */
+:root {
+    --primary-blue: #0056D2; /* Coursera's Main Blue */
+    --accent-dark: #000000;  /* Coursera's Black/Dark Text */
+    --background-light: #FFFFFF;
+    --text-color: #333333; /* Dark Gray for main content readability */
+    --light-gray: #F7F7F7; /* For subtle background stripes or cards */
+    --border-color: #E6E6E6; /* Light border for structure */
+    --font-family: 'Source Sans Pro', Arial, sans-serif; /* Coursera's primary typeface, with fallbacks */
+}
+
+/* --- Base Body & Typography --- */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--accent-dark);
+    font-weight: 700; /* Bold headers */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2.0em; }
+h3 { font-size: 1.5em; }
+
+/* Links are the signature blue */
+a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #003F99; /* A slightly darker blue for hover effect */
+    text-decoration: underline;
+}
+
+/* --- Main Navigation Bar (Clean & Structured) --- */
+.navbar {
+    background-color: var(--background-light);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-link {
+    margin-left: 20px;
+    font-size: 1.0em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Primary Call-to-Action Button (Solid Blue) */
+.button-primary {
+    background-color: var(--primary-blue);
+    color: var(--background-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1.0em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    text-align: center;
+    text-decoration: none; /* In case it's an <a> tag */
+    display: inline-block;
+}
+
+.button-primary:hover {
+    background-color: #003F99;
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+/* --- Card/Data Panel Style (Clean & Boxed) --- */
+.card {
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    margin-bottom: 20px;
+}
+
+/* --- Layout Container (Centered Content) --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 40px;
+}
+
+/* --- Flight Log Data Table (Clean Lines) --- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    background-color: var(--light-gray);
+    color: var(--accent-dark);
+    font-weight: 600;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.data-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table tbody tr:hover {
+    background-color: #F0F0FF; /* Very light blue for hover row */
+}

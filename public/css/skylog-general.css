@@ -125,3 +125,60 @@ a:hover {
 .data-table tbody tr:hover {
     background-color: #F0F0FF; /* Very light blue for hover row */
 }
+
+
+/*
+ * CSS to position the navigation container (nav-bar)
+ * in the absolute top-right corner of the page.
+ */
+.nav-bar {
+    /* 1. Use absolute positioning to move the element
+     *        relative to the nearest positioned ancestor (usually the <body>).
+     */
+    position: absolute;
+
+    /* 2. Set 'top' to 0 to put it flush against the top edge.
+     */
+    top: 0;
+
+    /* 3. Set 'right' to 0 to put it flush against the right edge.
+     *
+     *     (We can remove the conflicting 'float: right;' and 'left: 0;' properties)
+     */
+    right: 0;
+
+    /* Use flexbox to arrange the links horizontally */
+    display: flex;
+
+    /* Add a small buffer/padding so they aren't touching the edge */
+    padding: 10px;
+}
+
+/*
+ * Fix: We need to style the '.upper-left-button' class from your HTML,
+ * or you need to change your HTML to use the '.upper-right-button' class.
+ * I'll assume you want to keep the HTML as is and just adjust the CSS.
+ *
+ * Note: I'm keeping the original class name from your HTML for consistency.
+ */
+.upper-right-button {
+    text-decoration: none; /* Removes the underline */
+    padding: 8px 12px;
+    margin-left: 10px; /* Use margin-left to space the buttons out from the right */
+    margin-right: 0; /* Clear the unnecessary margin-right */
+    border: 1px solid #ccc; /* Simple border */
+    border-radius: 4px;
+    color: #333; /* Text color */
+    background-color: #f4f4f4; /* Light background */
+}
+
+/* Optional: Hover effect */
+.upper-right-button:hover {
+    background-color: #ddd;
+}
+
+.center-div {
+    width: 30%; /* Or any specific width */
+    margin-left: auto;
+    margin-right: auto;
+}

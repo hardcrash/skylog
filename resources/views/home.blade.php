@@ -1,40 +1,29 @@
 <html lang="en">
+
+<link rel="stylesheet" type="text/css" href="{{ asset('css/skylog-general.css') }}" >
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>SkyLog</title>
 </head>
 
 <body>
-  <img src="../../public/images/skylog-logo.png" alt="skylog">
-  @auth
-  # <p>Congrats you are logged in.</p>
-  # <form action="/logout" method="POST">
-  #   @csrf
-  #   <button>Log out</button>
+  <img src="{{ asset('images/skylog-logo-small.png') }}" alt="skylog logo">
 
-  <div style="border: 3px solid black;">
-    <h2>Register</h2>
-    <form action="/register" method="POST">
-      @csrf
-      <input name="name" type="text" placeholder="name">
-      <input name="email" type="text" placeholder="email">
-      <input name="password" type="password" placeholder="password">
-      <button>Register</button>
-    </form>
+  <div class="nav-bar">
+  <a href="{{ url('/account.login') }}" class="upper-right-button">Login</a>
+   <a href="{{ url('/account.register') }}" class="upper-right-button" >Register</a>
   </div>
 
-  <div style="border: 3px solid black;">
-    <h2>Login</h2>
-    <form action="/login" method="POST">
-      @csrf
-      <input name="loginname" type="text" placeholder="name">
-      <input name="loginpassword" type="password" placeholder="password">
-      <button>Log in</button>
-    </form>
+  <div>
+   <img src="{{ asset('images/drone.jpg') }}" alt="skylog logo" width="2000" hieght="600">
   </div>
-  @endauth
+
+  <div class="center-div">
+    <h4>[Addition information and links placeholder]</h4>
+  </div>
 </body>
 
 </html>

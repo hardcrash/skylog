@@ -1,25 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AccountController;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::view('/', 'home');
 
-Route::get('/register', function() {
-   return view('account.register');
-});
+Route::get('/login', [AccountController::class,
+    'login'])->name('account.login');
 
+Route::get('/register', [AccountController::class,
+    'register'])->name('account.register');
 
-Route::get('/admin', function() {
-    return view('account.admin');
-});
-
-
-Route::get('/login', function() {
-    return view('account.login');
-});
-
-Route::get('/logout', function() {
-    return view('account.logout');
-});

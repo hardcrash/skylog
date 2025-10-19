@@ -1,3 +1,5 @@
+<x-layout>
+
 <div>
 <h2>Register</h2>
 <form action="/register" method="POST">
@@ -7,3 +9,5 @@
 <button>Register</button>
 </form>
 </div>
+
+</x-layout>

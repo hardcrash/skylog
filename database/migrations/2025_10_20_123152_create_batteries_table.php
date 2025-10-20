@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('drones', function (Blueprint $table) {
+        Schema::create('batteries', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id')->constrained();
-            $table->string('registration_num',length:255);
-            $table->string('serial_num',length:255);
             $table->string('make',length:255);
             $table->string('model',length:255);
+            $table->string('condition',length:255);
+            $table->integer('uses');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('drones');
+        Schema::dropIfExists('batteries');
     }
 };

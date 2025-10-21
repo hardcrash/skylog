@@ -11,14 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('flights', function (Blueprint $table) {
+        Schema::create('weatherpatterns', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_id')->constrained();
-            $table->foreignId('drones_id')->constrained();
-            $table->timestamp('takeoff_time');
-            $table->timestamp('landing_time');
-            $table->timestamp('takeoff_gsp');
-            $table->timestamp('landing_gps');
             $table->timestamps();
         });
     }
@@ -28,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('flights');
+        Schema::dropIfExists('weatherpatterns');
     }
 };

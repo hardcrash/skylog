@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<a href="{{ url('/') }}"><img src="{{ asset('images/skylog-logo-small.png') }}" alt="skylog logo"></img>
+<a href="{{ url('/') }}"><img src="{{ asset('images/skylog-logo-small.png') }}" alt="skylog logo"></img></a>
 
 {{ $slot}}
 

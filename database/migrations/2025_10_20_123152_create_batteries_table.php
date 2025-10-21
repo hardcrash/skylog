@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('batteries', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id')->constrained();
-            $table->string('make',length:255);
-            $table->string('model',length:255);
-            $table->string('condition',length:255);
-            $table->integer('uses');
+            $table->string('make');
+            $table->string('model');
+            $table->string('condition',length:1024)->nullable();
+            $table->integer('uses')->nullable();
             $table->timestamps();
         });
     }

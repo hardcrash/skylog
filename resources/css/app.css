@@ -1,11 +1,217 @@
-@import 'tailwindcss';
+/*
+ * SkyLog CSS - Inspired by Coursera
+ */
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+/* --- Variables (For easy color changes) --- */
+:root {
+    --primary-blue: #0056D2; /* Coursera's Main Blue */
+    --accent-dark: #000000;  /* Coursera's Black/Dark Text */
+    --background-light: #FFFFFF;
+    --text-color: #333333; /* Dark Gray for main content readability */
+    --light-gray: #F7F7F7; /* For subtle background stripes or cards */
+    --border-color: #E6E6E6; /* Light border for structure */
+    --font-family: 'Source Sans Pro', Arial, sans-serif; /* Coursera's primary typeface, with fallbacks */
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+/* --- Base Body & Typography --- */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--accent-dark);
+    font-weight: 700; /* Bold headers */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2.0em; }
+h3 { font-size: 1.5em; }
+
+/* Links are the signature blue */
+a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #003F99; /* A slightly darker blue for hover effect */
+    text-decoration: underline;
+}
+
+/* --- Main Navigation Bar (Clean & Structured) --- */
+.navbar {
+    background-color: var(--background-light);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-link {
+    margin-left: 20px;
+    font-size: 1.0em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Primary Call-to-Action Button (Solid Blue) */
+.button-primary {
+    background-color: var(--primary-blue);
+    color: var(--background-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1.0em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    text-align: center;
+    text-decoration: none; /* In case it's an <a> tag */
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.button-primary:hover {
+    background-color: #003F99;
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+/* --- Card/Data Panel Style (Clean & Boxed) --- */
+.card {
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    margin-bottom: 20px;
+}
+
+/* --- Layout Container (Centered Content) --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 40px;
+}
+
+/* --- Flight Log Data Table (Clean Lines) --- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    background-color: var(--light-gray);
+    color: var(--accent-dark);
+    font-weight: 600;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.data-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table tbody tr:hover {
+    background-color: #F0F0FF; /* Very light blue for hover row */
+}
+
+
+/*
+ * CSS to position the navigation container (nav-bar)
+ * in the absolute top-right corner of the page.
+ */
+.nav-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    padding: 10px;
+}
+
+
+.button-primary-right {
+    background-color: var(--primary-blue);
+    color: var(--background-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1.0em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    text-align: center;
+    display: inline-block;
+
+    margin-left: 25px;
+    margin-right: 0;
+    text-decoration: none;
+}
+
+/* Optional: Hover effect */
+.button-primary-right:hover {
+    background-color: #003F99;
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+.center-div {
+    width: 30%; /* Or any specific width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- INPUT & FORM FIELD ALIGNMENT (CRITICAL FIX) ---------------------- */
+
+/* 1. Global Input Consistency */
+input, select, textarea {
+    box-sizing: border-box; /* Ensures padding/border is inside the height/width */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    height: 40px;
+
+    display: block; /* Prevents inline wrapping issues */
+    width: 25%;
+    margin: 0;
+    float: none !important; /* Prevents conflicting floating styles */
+}
+
+/* 2. Grid Layout for Form Alignment */
+.form-row {
+    display: grid;
+    /* 150px for the label, 1fr (remaining space) for the input */
+    grid-template-columns: 150px 1fr;
+    gap: 10px;
+    align-items: center; /* Vertically aligns label text with input field */
+    margin-bottom: 15px;
+}
+
+.form-row label {
+    text-align: right;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.button-container {
+    /* Use flexbox to control the alignment of content inside the button's grid cell */
+    display: flex;
+
+    /* Pushes the button (or any content) to the far right of its container */
+    justify-content: flex-end;
+}
+
+.button-row .button-primary {
+    margin-top: 0;
 }

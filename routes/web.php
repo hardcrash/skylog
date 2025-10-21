@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 
 Route::view('/', 'home')->name('home');
 
+// AuthController routes
 Route::get('/login', [AuthController::class,
     'showLogin'])->name('show.login');
 
@@ -16,3 +17,7 @@ Route::post('/login', [AuthController::class,
 
 Route::post('/register', [AuthController::class,
     'register'])->name('register');
+
+Route::post('/logout', [AuthController::class,
+                'logout'])->name('logout');
+

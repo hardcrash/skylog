@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use App\Models\User;
 
 class AuthController extends Controller {
@@ -31,7 +32,35 @@ class AuthController extends Controller {
             return redirect()->route('home');
         }
 
-        public function login() {
+        public function login(Request $request) {
+
+            $validated = $request->validate([
+                'email' => 'required|email|',
+                'password' => 'required|string'
+            ]);
+
+            if(Auth::attempt($validated)) {
+                $request->session()->regenerate();
+                return redirect()->route('home');
+            }
+
+            throw ValidationException::withMessages([
+                'credentials' => 'Incorrect credentials'
+            ]);
+
+        }
+
+        public function logout(Request $request) {
+
+            Auth::logout();
+
+            // removes all session data
+            $request->session()->invalidate();
+
+            // regenerates the csrf token for the next session
+            $request->session()->regenerateToken();
+
+            return redirect()->route('home');
 
         }
 }

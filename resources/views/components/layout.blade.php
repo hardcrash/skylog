@@ -1,19 +1,45 @@
+
+
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SkyLog</title>
+        @vite('resources/css/app.css')
+    </head>
 
-<link rel="stylesheet" type="text/css" href="{{ asset('css/skylog-general.css') }}" >
+    <body>
+        @if (session('success'))
+            <div id="flash" class="p-4 text-center bg-green-50 text-green-500 font-bold">
+            {{ session('success') }}
+            </div>
+        @endif
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>SkyLog</title>
-</head>
+        <header>
+        <a href="{{ url('/') }}"><img src="{{ asset('images/skylog-logo-small.png') }}" alt="skylog logo"></img></a>
+        @guest
+            <div class="nav-bar">
+                <a href="{{ route('show.login') }}" class="button-primary-right">Login</a>
 
-<body>
-<a href="{{ url('/') }}"><img src="{{ asset('images/skylog-logo-small.png') }}" alt="skylog logo"></img></a>
+                <a href="{{ route('show.register') }}" class="button-primary-right">Register</a>
+                @endguest
 
-{{ $slot}}
+                @auth
+                <span class="border-r-2 pr-5">
+                    Hi there, {{ Auth::user()->name }}
+                </span>
 
-</body>
+                <form action="{{ route('logout') }}" method="POST" class="m-0">
+                    @csrf
+                    <button type="submit" class="button-primary-right">Logout</button>
+                </form>
+                @endauth
+            </div>
+        </header>
 
+    <main>
+        {{ $slot }}
+    </main>
+
+    </body>
 </html>

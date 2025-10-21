@@ -4,37 +4,29 @@
 
 <h2>Register for an Account</h2>
 
-<label for="name">Name:</label></br>
-<input
-type="text"
-name="name"
-value="{{ old('name') }}"
-required
-></br>
+<div class="form-row">
+    <label for="name">Name:</label>
+    <input type="text" name="name" size="30" value="{{ old('name') }}" required>
+</div>
 
-<label for="email">Email:</label></br>
-<input
-type="email"
-name="email"
-required
-value="{{ old('email') }}"
-></br>
+<div class="form-row">
+    <label for="email">Email:</label>
+    <input type="email" name="email" size="30" required value="{{ old('email') }}">
+</div>
 
-<label for="password">Password:</label></br>
-<input
-type="password"
-name="password"
-required
-></br>
+<div class="form-row">
+    <label for="password">Password:</label>
+    <input type="password" name="password" size="30"  required>
+</div>
 
-<label for="password_confirmation">Confirm Password:</label></br>
-<input
-type="password"
-name="password_confirmation"
-required
-></br>
+<div class="form-row">
+    <label for="password_confirmation">Confirm Password:</label>
+    <input type="password" name="password_confirmation" size="30" required>
+</div>
 
-<button type="submit" class="btn mt-4">Register</button>
+<div class="form-row">
+    <button type="submit" class="button-primary">Log in</button>
+</div>
 
 <!-- validation errors -->
 @if ($errors->any())

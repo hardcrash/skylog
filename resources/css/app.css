@@ -172,9 +172,6 @@ a:hover {
     margin-right: auto;
 }
 
-/* --- INPUT & FORM FIELD ALIGNMENT (CRITICAL FIX) ---------------------- */
-
-/* 1. Global Input Consistency */
 input, select, textarea {
     box-sizing: border-box; /* Ensures padding/border is inside the height/width */
     border: 1px solid #ccc;
@@ -188,7 +185,7 @@ input, select, textarea {
     float: none !important; /* Prevents conflicting floating styles */
 }
 
-/* 2. Grid Layout for Form Alignment */
+
 .form-row {
     display: grid;
     /* 150px for the label, 1fr (remaining space) for the input */
@@ -204,14 +201,4 @@ input, select, textarea {
     padding-bottom: 0;
 }
 
-.button-container {
-    /* Use flexbox to control the alignment of content inside the button's grid cell */
-    display: flex;
 
-    /* Pushes the button (or any content) to the far right of its container */
-    justify-content: flex-end;
-}
-
-.button-row .button-primary {
-    margin-top: 0;
-}

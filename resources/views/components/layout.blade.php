@@ -16,26 +16,35 @@
         @endif
 
         <header>
-        <a href="{{ url('/') }}"><img src="{{ asset('images/skylog-logo-small.png') }}" alt="skylog logo"></img></a>
-        @guest
-            <div class="nav-bar">
-                <a href="{{ route('show.login') }}" class="button-primary-right">Login</a>
+            <a href="{{ url('/') }}"><img src="{{ asset('images/skylog-logo-small.png') }}" alt="skylog logo"></img></a>
 
-                <a href="{{ route('show.register') }}" class="button-primary-right">Register</a>
-                @endguest
+                <div class="nav-bar">
+                    @guest
+                        <a href="{{ route('show.login') }}" class="button-primary-right">Login</a>
+
+                        <a href="{{ route('show.register') }}" class="button-primary-right">Register</a>
+                    @endguest
+
+                    @auth
+                        <span class="border-r-2 pr-5">
+                            Hi there, {{ Auth::user()->name }}
+                        </span>
+
+                        <form action="{{ route('logout') }}" method="POST" class="m-0">
+                            @csrf
+                            <button type="submit" class="button-primary-right">Logout</button>
+                        </form>
+                    @endauth
+                </div>
 
                 @auth
-                <span class="border-r-2 pr-5">
-                    Hi there, {{ Auth::user()->name }}
-                </span>
-
-                <form action="{{ route('logout') }}" method="POST" class="m-0">
-                    @csrf
-                    <button type="submit" class="button-primary-right">Logout</button>
-                </form>
-                @endauth
-            </div>
-        </header>
+                    <div class="nav-bar">
+                        <a href="{{ route('show.drones') }}">Drones</a>
+                        <a href="{{ route('show.drones') }}">Batteries</a>
+                        <a href="{{ route('show.drones') }}">Flight Crew</a>
+                        <a href="{{ route('show.drones') }}">Flights</a>
+                    </div>
+            </header>
 
     <main>
         {{ $slot }}

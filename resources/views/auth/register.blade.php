@@ -25,7 +25,7 @@
 </div>
 
 <div class="form-row">
-    <button type="submit" class="button-primary">Log in</button>
+    <button type="submit" class="button-primary">Register</button>
 </div>
 
 <!-- validation errors -->

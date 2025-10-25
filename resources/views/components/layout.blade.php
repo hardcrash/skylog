@@ -16,7 +16,7 @@
         @endif
 
         <header>
-            <a href="{{ url('/') }}"><img src="{{ asset('images/skylog-logo-small.png') }}" alt="skylog logo"></img></a>
+            <a href="{{ url('/') }}"><img src="{{ asset('images/skylog-logo-small.png') }}" alt="skylog logo"></a>
 
                 <div class="nav-bar">
                     @guest
@@ -36,17 +36,17 @@
                         </form>
                     @endauth
                 </div>
-
-                @auth
-                    <div class="nav-bar">
-                        <a href="{{ route('show.drones') }}">Drones</a>
-                        <a href="{{ route('show.drones') }}">Batteries</a>
-                        <a href="{{ route('show.drones') }}">Flight Crew</a>
-                        <a href="{{ route('show.drones') }}">Flights</a>
-                    </div>
             </header>
 
     <main>
+    @auth
+        <div class="navbar">
+        <a href="{{ route('drone.index') }}">Drones</a>
+        <a href="{{ route('drone.index') }}">Batteries</a>
+        <a href="{{ route('drone.index') }}">Flight Crew</a>
+        <a href="{{ route('drone.index') }}">Flights</a>
+    </div>
+    @endauth
         {{ $slot }}
     </main>
 
